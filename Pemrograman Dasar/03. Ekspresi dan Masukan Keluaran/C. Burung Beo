@@ -1,0 +1,8 @@
+#include <iostream>
+
+int main(){
+	char s[101];
+	scanf("%[^\n]", s);
+	printf("%s\n", s);
+	return 0;
+}
