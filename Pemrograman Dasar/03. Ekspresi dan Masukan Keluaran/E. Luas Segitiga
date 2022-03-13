@@ -1,0 +1,8 @@
+#include <iostream>
+
+int main(){
+	float A,T;
+	std::cin >> A >> T;
+	printf("%.2lf\n", A*T/2.0);
+	return 0;
+}
