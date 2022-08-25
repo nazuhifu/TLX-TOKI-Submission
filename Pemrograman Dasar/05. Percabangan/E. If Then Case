@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+	int N; scanf("%d",&N);
+
+	if(N>=10000) cout << "puluhribuan" << '\n';
+	else if(N>=1000) cout << "ribuan" << '\n';
+	else if(N>=100) cout << "ratusan" << '\n';
+	else if(N>=10) cout << "puluhan" << '\n';
+	else cout << "satuan" << '\n';
+	
+	return 0;
+}
