@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL); cout.tie(NULL);
+	float N; cin >> N;
+	if (N == trunc(N)) {
+		cout << N << ' ' << N << endl;
+	}
+	else if (N > 0) {
+		int x = trunc(N);
+		cout << x << ' ' << x + 1 << endl;
+	}
+	else {
+		int x = trunc(N);
+		cout << x - 1 << ' ' << x << endl;
+	}
+	
+	return 0;
+}
