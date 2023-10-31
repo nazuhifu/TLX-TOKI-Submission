@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+int faktorisasi(int X)
+{
+    int pangkat = 0;
+    for (int i = 2; i <= X; i++)
+    {
+        while(X % i == 0)
+        {
+            X = X / i;
+            pangkat = pangkat + 1;
+        }
+        if (pangkat!=0)
+        {
+            if(pangkat>1)
+            {
+               cout << i << "^" << pangkat;
+            }
+            else
+            {
+               cout << i;
+            }
+            if(X!=1)
+            {
+               cout << " x ";
+            }
+        }
+        //RESET PANGKAT
+        pangkat = 0;
+    }
+}
+
+int main()
+{
+    int N;
+    cin >> N;
+    faktorisasi(N);
+}
