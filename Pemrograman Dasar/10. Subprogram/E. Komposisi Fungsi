@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int fungsi(int a, int b, int k, int X)
+{
+    for (int i = 1; i <= k; i++)
+    {
+        int f = (a*X) + b;
+        X = abs(f);
+    }
+    cout << X;
+}
+
+int main()
+{
+    int A,B,K,x;
+    cin >> A >> B >> K >> x;
+    fungsi(A,B,K,x);
+}
