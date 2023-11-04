@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Array perpindahan untuk bergerak ke atas, bawah, kiri, dan kanan
+short movex[] = {0, 0, 1, -1};
+short movey[] = {1, -1, 0, 0};
+
+int nilai; // Variabel untuk menghitung nilai bola terhubung
+short bola[25][25]; // Matriks bola
+short m, n; // Variabel untuk ukuran matriks
+
+// Fungsi rekursif untuk menghitung jumlah bola terhubung dari suatu posisi
+void count(short x, short y, short ball) {
+    // Jika posisi berada di luar matriks atau bukan bola yang sama, maka hentikan
+    if ((bola[x][y] != ball) || (y < 0) || (x < 0) || (y >= 25) || (x >= 25))
+        return;
+    else {
+        // Tambahkan ke nilai dan tandai bola yang sudah dihitung
+        nilai++;
+        bola[x][y] = -1;
+        // Cek keempat arah perpindahan dan lanjutkan pencarian
+        for (int i = 0; i < (sizeof(movex) / sizeof(short)); i++) {
+            count(x + movex[i], y + movey[i], ball);
+        }
+    }
+}
+
+int main() {
+    nilai = 0; // Inisialisasi nilai awal
+    cin >> m >> n; // Input ukuran matriks
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++)
+            cin >> bola[i][j]; // Input isi matriks
+    }
+    short b, k; // Koordinat awal
+    cin >> b >> k; // Input koordinat awal
+    count(b, k, bola[b][k]); // Hitung bola terhubung dari koordinat awal
+    cout << ((nilai - 1) * nilai) << endl; // Keluarkan hasil perhitungan
+    return 0;
+}
