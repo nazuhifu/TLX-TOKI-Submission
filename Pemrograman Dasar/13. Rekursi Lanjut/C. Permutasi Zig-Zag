@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int n, catat[10];
+bool visited[10] = {0};
+void tulis(int kedalaman);
+
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
+	cin >> n;
+	tulis(0);
+	
+	return 0;
+}
+
+void tulis(int kedalaman){
+	if(kedalaman >= n){
+		bool zigzag = true;
+		for(int i = 1; i < n-1; i++){
+			bool a = catat[i] < catat[i-1] && catat[i] < catat[i+1];
+			bool b = catat[i] > catat[i-1] && catat[i] > catat[i+1];
+			if(!(a||b)){
+				zigzag = 0;
+				break;
+			}
+		}
+		if(zigzag){
+			for(int i = 0; i < n; i++){
+				cout << catat[i];
+			}
+			cout << endl;
+		}
+	}
+	else{
+		for(int i = 1; i <= n; i++){
+			if(!visited[i]){
+				visited[i] = true;
+				catat[kedalaman] = i;
+				tulis(kedalaman + 1);
+				visited[i] = false;
+			}
+		}
+	}
+}
