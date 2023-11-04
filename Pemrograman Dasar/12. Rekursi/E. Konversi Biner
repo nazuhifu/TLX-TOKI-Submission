@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+vector<int> biner;
+
+void bin(int n){
+    if(n <= 1){
+        biner.push_back(1);
+        for(int i = biner.size()-1; i >= 0; i--){
+            cout << biner[i];
+        }
+    }
+    else if(n%2 == 0){
+        biner.push_back(0);
+        return bin(n/2);
+    } else{
+        biner.push_back(1);
+        return bin(n/2);
+    }
+}
+
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    int n; cin >> n;
+    bin(n);
+
+    return 0;
+}
