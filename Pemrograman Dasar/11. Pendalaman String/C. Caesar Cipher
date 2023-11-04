@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+
+string s;
+
+int main(){
+	int n;
+	cin >> s;
+	cin >> n;
+
+	for (int i = 0; i < s.length(); i++){
+		int order = s[i] - 'a';
+		int en = (order + n) % 26;
+		s[i] = en + 'a';
+	}
+	cout << s;
+}
