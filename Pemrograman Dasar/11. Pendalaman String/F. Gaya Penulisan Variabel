@@ -1,0 +1,18 @@
+#include<iostream>
+using namespace std;
+
+string s;
+int main(){
+	cin >> s;
+	for (int i = 0; i < s.length(); i++){
+		if (s[i] == 95){          //JIKA HURUF KE i ADALAH UNDERSCORE, MAKA UBAH HURUF SETELAHNYA MENJADI HURUF BESAR
+			s[i+1] -= 'a' - 'A';
+			s.erase(i, 1); 	        //HAPUS UNDERSCORE TERSEBUT
+		}
+		else if (s[i] < 95 && i != 0){
+			s[i] -= 'A' - 'a';      //JIKA HURUF KE i ADALAH HURUF KAPITAL, MAKA UBAH HURUF KE i MENJADI HURUF KECIL
+			s.insert(i, "_");       //TAMBAHKAN "_" KE INDEKS i
+		}
+	}
+	cout << s;
+}
