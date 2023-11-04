@@ -1,0 +1,27 @@
+#include<iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+
+bool pal(string kata){
+    if(kata.size() <= 1) return 1;
+    else{
+        if(kata[0] == kata[kata.size()-1]){
+            kata = kata.substr(1, kata.size()-2);
+            return pal(kata);
+        }
+        else{
+            return 0;
+        }
+    } 
+}
+
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    string kata;
+    cin >> kata;
+    if(pal(kata)) cout << "YA" << endl;
+    else cout << "BUKAN" << endl;    
+    return 0;
+}
