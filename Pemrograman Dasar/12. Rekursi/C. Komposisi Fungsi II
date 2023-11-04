@@ -1,0 +1,21 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int A, B;
+
+int komposisi(int K, int x){
+    if(K <= 0) return x;
+    else {
+        return abs(A * komposisi(K-1, x) + B);
+    }
+}
+
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    int K, x;
+    cin >> A >> B >> K >> x;
+    cout << komposisi(K, x);
+    
+    return 0;
+}
