@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string S,T;
+    cin >> S >> T;
+    while(S.find(T) != -1){   //Lakukan selama substring T masih ada di string S
+        S = S.erase(S.find(T),T.length());  //Hapus substring T di string S di indeks ditemukan substring T sampai panjang T
+    }
+    cout << S;
+}
